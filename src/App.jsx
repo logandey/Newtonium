@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useAuth } from './context/AuthContext'
 import AuthPage from './pages/AuthPage'
+import AuthConfirmPage from './pages/AuthConfirmPage'
 import InboxPage from './pages/InboxPage'
 import CalendarPage from './pages/CalendarPage'
 import CrewPage from './pages/CrewPage'
@@ -17,6 +18,11 @@ const tabs = [
 export default function App() {
   const { session, loading } = useAuth()
   const [activeTab, setActiveTab] = useState('inbox')
+
+  // Handle auth confirmation route
+  if (window.location.pathname === '/auth/confirm') {
+    return <AuthConfirmPage />
+  }
 
   if (loading) {
     return (
