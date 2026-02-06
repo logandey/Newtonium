@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useAuth } from './context/AuthContext'
+import AuthPage from './pages/AuthPage'
 import InboxPage from './pages/InboxPage'
 import CalendarPage from './pages/CalendarPage'
 import CrewPage from './pages/CrewPage'
@@ -13,7 +15,25 @@ const tabs = [
 ]
 
 export default function App() {
+  const { session, loading } = useAuth()
   const [activeTab, setActiveTab] = useState('inbox')
+
+  if (loading) {
+    return (
+      <div className="h-screen bg-surface-950 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-12 h-12 rounded-2xl bg-brand-600/20 border border-brand-500/30 flex items-center justify-center mx-auto mb-3 animate-pulse-soft">
+            <span className="text-xl font-bold text-brand-400">N</span>
+          </div>
+          <p className="text-sm text-surface-500">Loading...</p>
+        </div>
+      </div>
+    )
+  }
+
+  if (!session) {
+    return <AuthPage />
+  }
 
   const renderPage = () => {
     switch (activeTab) {
@@ -27,12 +47,10 @@ export default function App() {
 
   return (
     <div className="h-full flex flex-col bg-surface-950">
-      {/* Main content area */}
       <main className="flex-1 overflow-y-auto">
         {renderPage()}
       </main>
 
-      {/* Bottom Navigation */}
       <nav className="flex-shrink-0 bg-surface-900/95 backdrop-blur-lg border-t border-surface-800/50">
         <div className="flex justify-around items-center h-16 max-w-lg mx-auto px-2">
           {tabs.map((tab) => {
@@ -61,7 +79,6 @@ export default function App() {
             )
           })}
         </div>
-        {/* Safe area for phones with gesture bars */}
         <div className="h-[env(safe-area-inset-bottom)]" />
       </nav>
     </div>

@@ -62,7 +62,6 @@ export default function InboxPage() {
 
   return (
     <div className="min-h-full pb-4">
-      {/* Header */}
       <div className="sticky top-0 z-10 bg-surface-950/95 backdrop-blur-lg border-b border-surface-800/50">
         <div className="px-5 pt-14 pb-4">
           <h1 className="text-2xl font-bold text-white tracking-tight">Inbox</h1>
@@ -72,7 +71,6 @@ export default function InboxPage() {
         </div>
       </div>
 
-      {/* Call List */}
       <div className="px-4 pt-3 space-y-3">
         {calls.map((call, index) => {
           const urgency = urgencyConfig[call.urgency]
@@ -89,7 +87,6 @@ export default function InboxPage() {
                   : 'bg-surface-900/50 border-surface-800/40 hover:border-surface-700/60'
               }`}
             >
-              {/* Card header */}
               <div className="px-4 py-3.5">
                 <div className="flex items-start justify-between gap-3">
                   <div className="flex-1 min-w-0">
@@ -112,17 +109,14 @@ export default function InboxPage() {
                 </div>
               </div>
 
-              {/* Expanded detail */}
               {isExpanded && (
                 <div className="px-4 pb-4 border-t border-surface-800/50 animate-fade-in-up">
                   <div className="pt-3 space-y-3">
-                    {/* Summary */}
                     <div>
                       <p className="text-xs font-medium text-surface-500 uppercase tracking-wider mb-1">Summary</p>
                       <p className="text-sm text-surface-200 leading-relaxed">{call.summary}</p>
                     </div>
 
-                    {/* Details row */}
                     <div className="flex flex-col gap-2">
                       <div className="flex items-center gap-2 text-sm text-surface-400">
                         <Phone size={14} className="text-surface-500" />
@@ -136,7 +130,6 @@ export default function InboxPage() {
                       </div>
                     </div>
 
-                    {/* Action buttons */}
                     <div className="flex gap-2 pt-1">
                       <a
                         href={`tel:${call.callerPhone}`}
@@ -164,4 +157,3 @@ export default function InboxPage() {
     </div>
   )
 }
-

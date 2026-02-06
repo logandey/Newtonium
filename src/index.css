@@ -22,7 +22,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -34,7 +33,6 @@ body {
   border-radius: 4px;
 }
 
-/* Animations */
 @keyframes fadeInUp {
   from {
     opacity: 0;

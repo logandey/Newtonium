@@ -1,11 +1,11 @@
-# CrewAI
+# Newtonium
 
 AI-powered workforce management for small contractors. Hire your first AI employee.
 
 ## Tech Stack
 
 - **Frontend:** React + Vite + Tailwind CSS
-- **Backend:** Supabase (coming soon)
+- **Backend:** Supabase
 - **Voice AI:** Vapi.ai (coming soon)
 - **Hosting:** Vercel
 

@@ -78,7 +78,6 @@ export default function CalendarPage() {
 
   return (
     <div className="min-h-full pb-4">
-      {/* Header */}
       <div className="sticky top-0 z-10 bg-surface-950/95 backdrop-blur-lg border-b border-surface-800/50">
         <div className="px-5 pt-14 pb-3">
           <div className="flex items-center justify-between">
@@ -89,7 +88,6 @@ export default function CalendarPage() {
           </div>
         </div>
 
-        {/* Month & Nav */}
         <div className="flex items-center justify-between px-5 pb-2">
           <button
             onClick={() => {
@@ -114,7 +112,6 @@ export default function CalendarPage() {
           </button>
         </div>
 
-        {/* Week Strip */}
         <div className="flex justify-around px-3 pb-3">
           {weekDates.map((date, i) => (
             <button
@@ -137,26 +134,20 @@ export default function CalendarPage() {
         </div>
       </div>
 
-      {/* Daily Summary Banner */}
       <div className="mx-4 mt-4 p-3.5 rounded-2xl bg-gradient-to-r from-brand-900/50 to-brand-800/30 border border-brand-700/30">
-        <p className="text-sm font-medium text-brand-300">
-          Today's Summary
-        </p>
+        <p className="text-sm font-medium text-brand-300">Today's Summary</p>
         <p className="text-xs text-surface-400 mt-1">
           {MOCK_APPOINTMENTS.length} appointments · First job at 9:00 AM · Last at 3:00 PM
         </p>
       </div>
 
-      {/* Appointments List */}
       <div className="px-4 pt-4 space-y-3">
         {MOCK_APPOINTMENTS.map((apt, index) => (
           <div
             key={apt.id}
             className={`animate-fade-in-up stagger-${index + 1} opacity-0 flex gap-3 p-3.5 rounded-2xl bg-surface-800/60 border border-surface-700/40 hover:border-surface-600/50 transition-all cursor-pointer`}
           >
-            {/* Color bar */}
             <div className={`w-1 self-stretch rounded-full ${apt.color} flex-shrink-0`} />
-
             <div className="flex-1 min-w-0">
               <h3 className="text-sm font-semibold text-white truncate">{apt.title}</h3>
               <div className="flex items-center gap-1.5 mt-1.5">
